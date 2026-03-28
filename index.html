@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -24,6 +24,7 @@
       <li><a href="#programs">Programs</a></li>
       <li><a href="#event">Hack Afternoon</a></li>
       <li><a href="#apply">Mentorship</a></li>
+      <li><a href="flood-relief.html" style="color:var(--rust,#8c2f1a);font-weight:500;">Flood Relief</a></li>
       <li><a href="#event" class="nav-cta">Join an Event</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -69,6 +70,19 @@
     </div>
   </div>
 </section>
+
+
+<!-- FLOOD RELIEF CALLOUT -->
+<div style="background:#7A2818;padding:1rem 2rem;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
+    <div>
+      <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:4px;">Community Resource</div>
+      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-weight:500;color:#fff;line-height:1.3;">Hawaiʻi Flood Relief — Kona Low 2026</div>
+      <div style="font-size:0.82rem;font-weight:300;color:rgba(255,255,255,0.6);margin-top:3px;">Find help, volunteer, donate, and support farmers across all islands.</div>
+    </div>
+    <a href="flood-relief.html" style="display:inline-flex;align-items:center;gap:6px;background:#fff;color:#7A2818;font-family:'Outfit',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.6rem 1.25rem;border-radius:2px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:opacity .15s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">View Resources →</a>
+  </div>
+</div>
 
 <div class="trust-bar">
   <div class="trust-inner">
@@ -263,6 +277,26 @@
   </div>
 </section>
 
+
+<!-- ===== FLOOD RELIEF CALLOUT ===== -->
+<section style="background:var(--rust-lgt,#FCEEE9);border-top:3px solid var(--rust,#7E2B18);padding:3.5rem 2rem;" id="flood-relief">
+  <div style="max-width:var(--max-w,1100px);margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;" class="flood-callout-inner">
+    <div>
+      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--rust,#7E2B18);margin-bottom:0.6rem;">Community Resource Project</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:500;color:var(--ink,#1A1812);line-height:1.15;margin-bottom:0.75rem;">Hawaiʻi Flood Relief — Kona Low 2026</h2>
+      <p style="font-size:0.95rem;font-weight:300;color:var(--ink-light,#6B6659);line-height:1.8;max-width:500px;">Resources for flood-affected families across Oʻahu, Maui, Molokaʻi, and Hawaiʻi Island — compiled from local news and verified community organizations. Need help? Want to donate or volunteer? Find your resources here.</p>
+    </div>
+    <div style="flex-shrink:0;">
+      <a href="flood-relief.html" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--rust,#7E2B18);color:#fff;padding:0.9rem 2rem;border-radius:2px;font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.04em;text-decoration:none;white-space:nowrap;transition:opacity 0.2s;" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+        View Resources →
+      </a>
+    </div>
+  </div>
+</section>
+<style>
+@media(max-width:600px){.flood-callout-inner{grid-template-columns:1fr!important;}}
+</style>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -300,6 +334,6 @@
   </div>
 </footer>
 
-<script src="main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
