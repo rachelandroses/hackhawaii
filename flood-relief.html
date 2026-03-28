@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hawaiʻi Flood Relief Resources — Kona Low 2026. Find help, volunteer, donate, and support farmers across all islands. A project of HackHawaii.org.">
+<meta property="og:title" content="Hawaiʻi Flood Relief — Find Help & Give Help">
+<meta property="og:description" content="Statewide flood relief resources for the 2026 Kona Low. Help for Oʻahu, Maui, Molokaʻi, and Hawaiʻi Island. A project of HackHawaii.org.">
+<meta property="og:type" content="website">
+<title>Hawaiʻi Flood Relief — Kona Low 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:#F5F3EE;color:#1C1C1A;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+
+:root{
+  --teal:     #0D4A42;
+  --teal-mid: #1A6B5E;
+  --teal-lt:  #EAF3F1;
+  --teal-bd:  #C0DAD6;
+  --amber:    #8C4A0E;
+  --amber-lt: #FBF0E4;
+  --rust:     #7A2818;
+  --rust-lt:  #FAEAE6;
+  --ink:      #1C1C1A;
+  --ink-70:   rgba(28,28,26,.70);
+  --ink-40:   rgba(28,28,26,.40);
+  --ink-12:   rgba(28,28,26,.12);
+  --ink-06:   rgba(28,28,26,.06);
+  --page:     #F5F3EE;
+  --white:    #FFFFFF;
+  --serif:    'Source Serif 4',Georgia,serif;
+  --sans:     'IBM Plex Sans',system-ui,sans-serif;
+  --max:      920px;
+}
+
+/* ── SKIP LINK ── */
+.skip{position:absolute;left:-9999px;top:0;background:var(--teal);color:#fff;padding:8px 16px;z-index:999}
+.skip:focus{left:0}
+
+/* ── TOP BAR ── */
+.topbar{
+  background:var(--teal);
+  padding:0 24px;
+  height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;
+}
+.topbar-left{display:flex;align-items:center;gap:16px}
+.topbar-home{
+  font-family:var(--serif);font-size:15px;font-weight:400;color:rgba(255,255,255,.75);
+  text-decoration:none;display:flex;align-items:center;gap:8px;
+  transition:color .15s;
+}
+.topbar-home:hover{color:#fff}
+.topbar-home svg{opacity:.55}
+.topbar-sep{width:1px;height:18px;background:rgba(255,255,255,.18)}
+.topbar-title{
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);
+}
+.topbar-call{
+  font-size:12px;font-weight:600;color:#fff;
+  display:flex;align-items:center;gap:6px;
+  border:1px solid rgba(255,255,255,.25);
+  padding:6px 14px;border-radius:2px;
+  transition:background .15s;
+}
+.topbar-call:hover{background:rgba(255,255,255,.1)}
+
+/* ── HERO ── */
+.hero{background:var(--teal);padding:56px 24px 52px;position:relative;overflow:hidden}
+.hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.025) 39px,rgba(255,255,255,.025) 40px),
+             repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.025) 39px,rgba(255,255,255,.025) 40px);
+}
+.hero-inner{max-width:var(--max);margin:0 auto;position:relative;z-index:1}
+.hero-project{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  border-radius:2px;padding:5px 12px;margin-bottom:28px;
+}
+.hero-project-text{
+  font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+}
+.hero-project-link{
+  font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);text-decoration:underline;text-underline-offset:2px;
+  transition:color .15s;
+}
+.hero-project-link:hover{color:#fff}
+.hero h1{
+  font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.6rem);
+  font-weight:300;line-height:1.08;letter-spacing:-.02em;
+  color:#fff;margin-bottom:16px;
+}
+.hero h1 strong{font-weight:600}
+.hero-sub{
+  font-size:15px;font-weight:300;line-height:1.75;
+  color:rgba(255,255,255,.58);max-width:520px;margin-bottom:32px;
+}
+.hero-stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.hero-stat{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  border-radius:2px;padding:12px 18px;
+}
+.hero-stat-val{
+  font-family:var(--serif);font-size:1.5rem;font-weight:400;color:#fff;line-height:1;
+}
+.hero-stat-lbl{
+  font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);margin-top:4px;
+}
+
+/* ── WHAT DO YOU NEED ── */
+.need-bar{
+  background:var(--white);
+  border-bottom:1px solid var(--ink-12);
+  position:sticky;top:52px;z-index:90;
+}
+.need-inner{
+  max-width:var(--max);margin:0 auto;
+  padding:0 24px;
+  display:flex;align-items:stretch;gap:0;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.need-inner::-webkit-scrollbar{display:none}
+.need-label{
+  font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-40);padding:14px 16px 14px 0;border-right:1px solid var(--ink-12);
+  margin-right:4px;white-space:nowrap;display:flex;align-items:center;flex-shrink:0;
+}
+.need-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:14px 16px;
+  font-family:var(--sans);font-size:13px;font-weight:500;
+  color:var(--ink-70);white-space:nowrap;
+  background:transparent;border:none;cursor:pointer;
+  border-bottom:2px solid transparent;
+  transition:color .15s,border-color .15s;
+  flex-shrink:0;
+}
+.need-btn:hover{color:var(--teal)}
+.need-btn.active{color:var(--teal);border-bottom-color:var(--teal);font-weight:600}
+.need-btn-dot{
+  width:6px;height:6px;border-radius:50%;flex-shrink:0;
+  background:var(--ink-12);transition:background .15s;
+}
+.need-btn.active .need-btn-dot,.need-btn:hover .need-btn-dot{background:var(--teal)}
+.need-btn.is-urgent .need-btn-dot{background:var(--rust)}
+.need-btn.is-urgent{color:var(--rust)}
+.need-btn.is-urgent.active{border-bottom-color:var(--rust)}
+
+/* ── MAIN ── */
+.main{max-width:var(--max);margin:0 auto;padding:48px 24px 96px}
+
+/* ── DEFAULT STATE ── */
+.default-callout{
+  background:var(--white);border:1px solid var(--ink-12);border-radius:4px;
+  padding:40px;text-align:center;
+}
+.default-callout p{font-size:15px;font-weight:300;color:var(--ink-70);line-height:1.7}
+.default-arrows{
+  display:flex;justify-content:center;gap:8px;margin-top:20px;flex-wrap:wrap;
+}
+.default-pill{
+  font-size:12px;font-weight:500;color:var(--teal);
+  background:var(--teal-lt);border:1px solid var(--teal-bd);
+  border-radius:2px;padding:6px 14px;cursor:pointer;
+  transition:background .15s;white-space:nowrap;
+}
+.default-pill:hover{background:#d4eae6}
+
+/* ── SECTIONS ── */
+.section{display:none}
+.section.visible{display:block;animation:rise .28s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTION HEADER ── */
+.sec-header{padding-bottom:28px;border-bottom:1px solid var(--ink-12);margin-bottom:36px}
+.sec-eyebrow{
+  font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-mid);margin-bottom:10px;
+}
+.sec-header h2{
+  font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:300;
+  line-height:1.15;letter-spacing:-.01em;color:var(--ink);margin-bottom:12px;
+}
+.sec-header h2 strong{font-weight:600}
+.sec-header p{font-size:15px;font-weight:300;color:var(--ink-70);line-height:1.75;max-width:580px}
+
+/* ── ALERT ── */
+.alert{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:16px 20px;border-left:3px solid var(--rust);
+  border-radius:0 4px 4px 0;background:var(--rust-lt);margin-bottom:20px;
+}
+.alert.info{border-color:var(--teal-mid);background:var(--teal-lt)}
+.alert-badge{
+  font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:#fff;background:var(--rust);padding:3px 9px;border-radius:2px;
+  flex-shrink:0;margin-top:2px;white-space:nowrap;
+}
+.alert.info .alert-badge{background:var(--teal)}
+.alert-text{font-size:13.5px;line-height:1.65;color:var(--rust)}
+.alert.info .alert-text{color:var(--teal)}
+.alert-text strong{font-weight:600}
+.alert-text a{font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* ── ICARD (big action row) ── */
+.icard{
+  background:var(--white);border:1px solid var(--ink-12);border-radius:4px;
+  padding:22px 24px;margin-bottom:8px;
+  display:grid;grid-template-columns:1fr auto;gap:16px 28px;align-items:center;
+}
+.icard h3{font-size:15px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:4px}
+.icard p{font-size:13px;color:var(--ink-70);line-height:1.65}
+.phone{
+  font-family:var(--serif);font-size:1.4rem;font-weight:400;
+  color:var(--teal);white-space:nowrap;display:block;
+  text-decoration:none;
+}
+.phone:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* ── DIV LABEL ── */
+.div-label{
+  font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-40);margin:40px 0 18px;
+  display:flex;align-items:center;gap:14px;
+}
+.div-label::after{content:'';flex:1;height:1px;background:var(--ink-12)}
+
+/* ── CARD GRID ── */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:8px;margin-bottom:8px;
+}
+.card{
+  background:var(--white);border:1px solid var(--ink-12);border-radius:4px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:border-color .14s,box-shadow .14s;
+}
+.card:hover{border-color:rgba(28,28,26,.18);box-shadow:0 4px 18px rgba(28,28,26,.07)}
+.card-accent{height:3px;flex-shrink:0;background:var(--teal)}
+.card-accent.amber{background:var(--amber)}
+.card-accent.slate{background:#2E3F52}
+.card-accent.rust{background:var(--rust)}
+.card-body{padding:20px 20px 16px;flex:1;display:flex;flex-direction:column}
+.card-tag{
+  font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--teal-mid);margin-bottom:8px;
+}
+.card-tag.amber{color:var(--amber)}
+.card-tag.slate{color:#2E3F52}
+.card h3{font-size:14px;font-weight:600;color:var(--ink);line-height:1.35;margin-bottom:7px}
+.card p{font-size:13px;color:var(--ink-70);line-height:1.65;flex:1;margin-bottom:16px}
+.card-foot{padding-top:12px;border-top:1px solid var(--ink-06)}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;
+  padding:9px 18px;border-radius:2px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:background .14s,opacity .14s;white-space:nowrap;
+}
+.btn::after{content:'→';font-size:12px;letter-spacing:0;font-weight:400}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{background:var(--teal-mid)}
+.btn-soft{background:var(--teal-lt);color:var(--teal)}
+.btn-soft:hover{background:#cfe6e2}
+.btn-amber{background:var(--amber-lt);color:var(--amber)}
+.btn-amber:hover{background:#f4e2cc}
+.btn-slate{background:#EDF1F6;color:#2E3F52}
+.btn-slate:hover{background:#d5dfe9}
+.btn-ghost{background:transparent;color:var(--ink-70);border:1.5px solid var(--ink-12)}
+.btn-ghost:hover{border-color:var(--teal-mid);color:var(--teal);background:var(--teal-lt)}
+.btn-rust{background:var(--rust-lt);color:var(--rust)}
+.btn-rust:hover{background:#f1d9d3}
+
+/* ── SOURCES ── */
+.sources{margin-top:48px;padding-top:24px;border-top:1px solid var(--ink-12)}
+.sources-label{
+  font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-40);margin-bottom:12px;
+}
+.sources-list{display:flex;flex-wrap:wrap;gap:6px}
+.source-chip{
+  font-size:11px;font-weight:500;color:var(--ink-70);
+  background:var(--white);border:1px solid var(--ink-12);
+  border-radius:2px;padding:5px 12px;text-decoration:none;
+  transition:border-color .14s,color .14s;
+}
+.source-chip:hover{border-color:var(--teal-mid);color:var(--teal)}
+
+/* ── FOOTER ── */
+footer{background:var(--teal);padding:40px 24px 32px}
+.foot-inner{max-width:var(--max);margin:0 auto}
+.foot-brand{
+  font-family:var(--serif);font-size:1.3rem;font-weight:400;
+  color:#fff;margin-bottom:6px;
+}
+.foot-tag{
+  font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);margin-bottom:16px;
+}
+.foot-desc{font-size:13px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.75;max-width:520px;margin-bottom:24px}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.foot-link{
+  font-size:12px;font-weight:500;color:rgba(255,255,255,.6);
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  border-radius:2px;padding:7px 14px;text-decoration:none;
+  transition:background .15s,color .15s;white-space:nowrap;
+}
+.foot-link:hover{background:rgba(255,255,255,.12);color:#fff}
+.foot-home{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:600;color:rgba(255,255,255,.5);
+  text-decoration:none;transition:color .15s;
+}
+.foot-home:hover{color:#fff}
+.foot-bottom{
+  margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);
+  font-size:11px;font-weight:300;color:rgba(255,255,255,.3);line-height:1.7;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .icard{grid-template-columns:1fr}
+  .topbar-left{gap:10px}
+  .topbar-title{display:none}
+  .hero{padding:40px 16px 40px}
+  .main{padding:32px 16px 64px}
+  .need-label{display:none}
+  .foot-inner{padding:0}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- TOP BAR -->
+<nav class="topbar" aria-label="Site navigation">
+  <div class="topbar-left">
+    <a href="index.html" class="topbar-home" aria-label="Back to HackHawaii">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      HackHawaii.org
+    </a>
+    <div class="topbar-sep"></div>
+    <span class="topbar-title">Hawaiʻi Flood Relief</span>
+  </div>
+  <a href="tel:211" class="topbar-call">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M10.5 8.5c0 .2-.05.4-.15.6-.1.2-.25.38-.45.52-.35.22-.73.33-1.12.33-.45 0-.93-.12-1.44-.36C6.83 9.35 6.3 9 5.78 8.5c-.52-.5-.87-1-.1-1.5-.35-.52-.7-1.05-.9-1.57C4.37 4.9 4.25 4.42 4.25 3.96c0-.38.1-.74.3-1.07.2-.33.47-.6.82-.78.18-.1.37-.15.57-.15.08 0 .16.01.23.04.08.03.15.09.2.17L7.3 3.5c.06.08.1.16.12.23.03.07.04.14.04.2 0 .08-.02.16-.07.24-.04.08-.1.16-.18.24l-.24.25c-.04.04-.05.08-.05.13 0 .02 0 .05.01.07l.03.09c.06.14.17.32.33.52.17.2.34.4.53.58.18.18.37.34.57.49.2.14.37.24.5.3l.08.03c.03.01.05.01.08.01.06 0 .1-.02.14-.06l.24-.25c.08-.09.17-.15.25-.19.08-.04.16-.06.25-.06.07 0 .13.01.2.04.07.03.15.07.23.13l1.24 1.13c.08.06.14.13.17.21.03.08.05.16.05.25z" stroke="currentColor" stroke-width=".9" stroke-miterlimit="10"/></svg>
+    Call 2-1-1
+  </a>
+</nav>
+
+<!-- HERO -->
+<header class="hero" role="banner">
+  <div class="hero-inner">
+    <div class="hero-project">
+      <span class="hero-project-text">A project of</span>
+      <a href="index.html" class="hero-project-link">HackHawaii.org</a>
+      <span class="hero-project-text">&nbsp;· 501(c)(3) Nonprofit</span>
+    </div>
+    <h1><strong>Hawaiʻi Flood Relief</strong><br>Find help. Give help.</h1>
+    <p class="hero-sub">Resources compiled from verified sources for residents affected by the 2026 Kona Low across Oʻahu, Maui, Molokaʻi, and Hawaiʻi Island. Updated as new information becomes available.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-val">$15M+</div>
+        <div class="hero-stat-lbl">Agricultural losses</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">1,000+</div>
+        <div class="hero-stat-lbl">Acres farmland lost</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">20 yrs</div>
+        <div class="hero-stat-lbl">Worst flooding since</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">4 islands</div>
+        <div class="hero-stat-lbl">Statewide impact</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT DO YOU NEED BAR -->
+<div class="need-bar" role="navigation" aria-label="Filter by need">
+  <div class="need-inner">
+    <span class="need-label">What do you need?</span>
+    <button class="need-btn is-urgent active" onclick="show('need-help',this)" aria-pressed="true">
+      <span class="need-btn-dot"></span>I need help
+    </button>
+    <button class="need-btn" onclick="show('volunteer',this)" aria-pressed="false">
+      <span class="need-btn-dot"></span>I want to volunteer
+    </button>
+    <button class="need-btn" onclick="show('donate',this)" aria-pressed="false">
+      <span class="need-btn-dot"></span>I want to donate
+    </button>
+    <button class="need-btn" onclick="show('farmers',this)" aria-pressed="false">
+      <span class="need-btn-dot"></span>Support farmers
+    </button>
+    <button class="need-btn" onclick="show('all',this)" aria-pressed="false">
+      <span class="need-btn-dot"></span>View all
+    </button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main" id="main">
+
+  <!-- I NEED HELP -->
+  <section class="section visible" id="section-need-help" aria-label="I need help">
+    <div class="sec-header">
+      <div class="sec-eyebrow">Getting assistance</div>
+      <h2>Help is here for you<br>and your <em>ʻohana</em>.</h2>
+      <p>Start here if you've been displaced, lost property, or need food and supplies. You don't have to navigate this alone. Resources are available statewide — Oʻahu, Maui, Molokaʻi, and Hawaiʻi Island.</p>
+    </div>
+
+    <div class="alert">
+      <span class="alert-badge">Action required</span>
+      <div class="alert-text">
+        <strong>File your home damage report</strong> — your county needs this to unlock federal relief funds and coordinate insurance assistance. Do this first.
+        <br><a href="https://honolulu.gov/dem/homedamage" target="_blank" rel="noopener">honolulu.gov/dem/homedamage</a>
+      </div>
+    </div>
+
+    <div class="icard">
+      <div>
+        <h3>Call 2-1-1 — Aloha United Way Helpline</h3>
+        <p>Free, statewide, 24 hours a day. Immediate referrals to shelter, food, supplies, and recovery resources across all islands. Also available by text: text 898-211.</p>
+      </div>
+      <a href="tel:211" class="phone">2-1-1</a>
+    </div>
+
+    <div class="icard">
+      <div>
+        <h3>Request Storm Support — Official Form</h3>
+        <p>Official state/county request form for individuals and families needing direct assistance — housing, supplies, transportation, and more.</p>
+      </div>
+      <a href="http://tinyurl.com/oahustormsupportReport" target="_blank" rel="noopener" class="btn btn-primary">Request support</a>
+    </div>
+
+    <div class="icard">
+      <div>
+        <h3>American Red Cross — Shelter &amp; Emotional Support</h3>
+        <p>Shelter, food, and mental health support across Oʻahu, Maui, and Hawaiʻi Island. Find open shelter locations at redcross.org or call the helpline 24/7.</p>
+      </div>
+      <a href="tel:18007332767" class="phone">1-800-733-2767</a>
+    </div>
+
+    <div class="icard">
+      <div>
+        <h3>Emergency Housing — Camp Erdman, Waialua (Oʻahu)</h3>
+        <p>Short-term emergency housing available. Contact Jenn Holmberg directly to inquire about current availability and eligibility.</p>
+      </div>
+      <a href="tel:8086374615" class="phone">(808) 637-4615</a>
+    </div>
+
+    <div class="icard">
+      <div>
+        <h3>DCCA Insurance Division — Claims Assistance</h3>
+        <p>Hawaiʻi Dept. of Commerce &amp; Consumer Affairs helping residents navigate flood insurance claims. Free assistance available statewide.</p>
+      </div>
+      <a href="tel:8448083222" class="phone">(844) 808-3222</a>
+    </div>
+
+    <div class="div-label">Food &amp; supply distribution — statewide</div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-tag">Food · Ongoing — Oʻahu</div>
+          <h3>Hawaiʻi Food Bank</h3>
+          <p>Emergency distributions across Central Oʻahu and the North Shore — Mililani, Wahiawa, Hauula to Sunset Beach mobile pantry. Check their site for current times.</p>
+          <div class="card-foot"><a href="https://hawaiifoodbank.org" target="_blank" rel="noopener" class="btn btn-soft">Find distribution</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-tag">Food · Free hot meals</div>
+          <h3>Mercy Chefs</h3>
+          <p>Free chef-prepared meals for flood victims, first responders, and volunteers across Oʻahu. Check their site for current meal locations and times.</p>
+          <div class="card-foot"><a href="https://mercychefs.com" target="_blank" rel="noopener" class="btn btn-soft">Find meal locations</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-tag">Food · North Shore</div>
+          <h3>The Country Eatery, Kahuku</h3>
+          <p>Providing food and drinking water to the community and volunteers on Oʻahu's North Shore.</p>
+          <div class="card-foot"><a href="https://www.instagram.com/thecountryeatery" target="_blank" rel="noopener" class="btn btn-soft">Find on Instagram</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-tag">Meals · Statewide</div>
+          <h3>The Salvation Army Hawaiʻi</h3>
+          <p>Serving meals and distributing essential supplies across Oʻahu, Maui, and Hawaiʻi Island. Over 2,500 meals served in the first four days.</p>
+          <div class="card-foot"><a href="https://hawaii.salvationarmy.org" target="_blank" rel="noopener" class="btn btn-soft">Find services</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">Direct aid · Individuals</div>
+          <h3>Chef Hui HI — Direct Donations</h3>
+          <p>Curated live spreadsheet for donating directly to individuals and families affected. Verified by @chefhuihi.</p>
+          <div class="card-foot"><a href="https://linktr.ee/chefhuihi" target="_blank" rel="noopener" class="btn btn-amber">View spreadsheet</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">Multilingual support</div>
+          <h3>Roots Reborn</h3>
+          <p>Translation services for immigrant families with limited English — documents, applications, and direct outreach to access recovery resources.</p>
+          <div class="card-foot"><a href="https://rootsreborn.org" target="_blank" rel="noopener" class="btn btn-amber">Get help</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">Families with children</div>
+          <h3>The Parent Line</h3>
+          <p>Request assistance with food and diapers for families with young children impacted by the flooding.</p>
+          <div class="card-foot"><a href="tel:8084521832" class="btn btn-amber">Call (808) 452-1832</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">Mobile health · North Shore</div>
+          <h3>Healthy Mothers Healthy Babies &amp; Hawaiʻi HOME</h3>
+          <p>Mobile health units on Oʻahu's North Shore with Direct Relief — distributing water purification supplies, antibiotics, tetanus shots, and medical supplies.</p>
+          <div class="card-foot"><a href="https://hmhbhawaii.org" target="_blank" rel="noopener" class="btn btn-amber">Learn more</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent slate"></div>
+        <div class="card-body">
+          <div class="card-tag slate">Pets &amp; animals</div>
+          <h3>Hawaiian Humane Society</h3>
+          <p>Responding in flooded areas and providing pet food and supplies to displaced families. Updating their Amazon wishlist as needs arise.</p>
+          <div class="card-foot"><a href="https://hawaiianhumane.org" target="_blank" rel="noopener" class="btn btn-slate">Get pet help</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent slate"></div>
+        <div class="card-body">
+          <div class="card-tag slate">Catholic Charities</div>
+          <h3>Catholic Charities Hawaiʻi — Storm Recovery Fund</h3>
+          <p>Helping underserved households — including those who may fall through gaps in other relief programs: immigrants, elderly, and low-income families.</p>
+          <div class="card-foot"><a href="https://catholiccharitieshawaii.org" target="_blank" rel="noopener" class="btn btn-slate">Get help</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sources">
+      <div class="sources-label">Verified sources</div>
+      <div class="sources-list">
+        <a href="https://www.honolulumagazine.com/help-kona-low-storm-flooding/" target="_blank" rel="noopener" class="source-chip">Honolulu Magazine</a>
+        <a href="https://www.staradvertiser.com/2026/03/28/hawaii-news/how-to-donate-receive-help-following-hawaiis-kona-low-storms/" target="_blank" rel="noopener" class="source-chip">Star-Advertiser</a>
+        <a href="https://www.civilbeat.org/2026/03/list-help-oahu-flooding-victims-heres-where-you-can-donate/" target="_blank" rel="noopener" class="source-chip">Civil Beat</a>
+        <a href="https://www.khon2.com/local-news/how-to-help-flood-impacted-oahu-residents/" target="_blank" rel="noopener" class="source-chip">KHON2</a>
+        <a href="https://www.hawaiinewsnow.com/2026/03/24/how-help-donate-support-kona-low-flood-relief-recovery/" target="_blank" rel="noopener" class="source-chip">Hawaii News Now</a>
+        <a href="https://honolulu.gov/dem/homedamage" target="_blank" rel="noopener" class="source-chip">City &amp; County of Honolulu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOLUNTEER -->
+  <section class="section" id="section-volunteer" aria-label="Volunteer">
+    <div class="sec-header">
+      <div class="sec-eyebrow">Give your time</div>
+      <h2>Volunteers are needed<br><strong>across the islands right now.</strong></h2>
+      <p>No experience required for most roles. Cleanup, food distribution, wellness checks — here's where your time makes the most difference.</p>
+    </div>
+
+    <div class="icard">
+      <div>
+        <h3>Official Volunteer Registration — Oʻahu Flood Relief</h3>
+        <p>Roles include cleanup, supply distribution, wellness checks, logistics, and community care. No experience needed. Fill out the form to be matched.</p>
+      </div>
+      <a href="https://forms.gle/73vKH6RxbGHEsuvk6" target="_blank" rel="noopener" class="btn btn-primary">Register now</a>
+    </div>
+
+    <div class="icard">
+      <div>
+        <h3>American Red Cross — Volunteer Hotline</h3>
+        <p>Call to volunteer immediately. Rapid training provided. Sheltering and community care roles available across Oʻahu and neighbor islands.</p>
+      </div>
+      <a href="tel:8087342101" class="phone">(808) 734-2101 x4</a>
+    </div>
+
+    <div class="div-label">Organizations seeking volunteers</div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-tag">Cleanup &amp; wellness — North Shore</div>
+          <h3>Lā Hui Foundation</h3>
+          <p>Coordinating cleanup crews, wellness checks, supply distribution, and a resilience hub on Oʻahu's North Shore. Distributing supplies at Kahuku Elementary School.</p>
+          <div class="card-foot"><a href="https://www.lahuifoundation.org" target="_blank" rel="noopener" class="btn btn-soft">Sign up</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-tag">Community cleanup</div>
+          <h3>808 Cleanups</h3>
+          <p>Organized volunteer cleanups in flood-affected areas across Oʻahu. Check their social channels for current locations and start times.</p>
+          <div class="card-foot"><a href="https://808cleanups.org" target="_blank" rel="noopener" class="btn btn-soft">See locations</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">Food bank</div>
+          <h3>Hawaiʻi Food Bank</h3>
+          <p>Volunteers needed to sort, pack, and distribute food at emergency distribution events across Central Oʻahu and the North Shore.</p>
+          <div class="card-foot"><a href="https://hawaiifoodbank.org/volunteer" target="_blank" rel="noopener" class="btn btn-amber">Sign up</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">Meals &amp; care</div>
+          <h3>The Salvation Army</h3>
+          <p>Seeking volunteers for food distribution, hospitality services, and community care operations across Oʻahu, Maui, and Hawaiʻi Island.</p>
+          <div class="card-foot"><a href="https://hawaii.salvationarmy.org" target="_blank" rel="noopener" class="btn btn-amber">Volunteer</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">Disaster response</div>
+          <h3>American Red Cross</h3>
+          <p>Immediate volunteer openings for sheltering, community care, and disaster relief operations statewide. Sign up online or call the volunteer hotline.</p>
+          <div class="card-foot"><a href="https://rdcrss.org/3Pl0fbc" target="_blank" rel="noopener" class="btn btn-amber">Sign up online</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent slate"></div>
+        <div class="card-body">
+          <div class="card-tag slate">Pet rescue</div>
+          <h3>Hawaiian Humane Society</h3>
+          <p>Volunteer support needed for pet rescue, care, and supply distribution to displaced families with animals across flooded areas.</p>
+          <div class="card-foot"><a href="https://hawaiianhumane.org" target="_blank" rel="noopener" class="btn btn-slate">Volunteer</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sources">
+      <div class="sources-label">Verified sources</div>
+      <div class="sources-list">
+        <a href="https://www.civilbeat.org/2026/03/list-help-oahu-flooding-victims-heres-where-you-can-donate/" target="_blank" rel="noopener" class="source-chip">Civil Beat</a>
+        <a href="https://www.khon2.com/kona-low/how-2-help-where-2-donate-for-recovery-efforts-following-severe-weather/" target="_blank" rel="noopener" class="source-chip">KHON2</a>
+        <a href="https://www.hawaiinewsnow.com/2026/03/24/how-help-donate-support-kona-low-flood-relief-recovery/" target="_blank" rel="noopener" class="source-chip">Hawaii News Now</a>
+        <a href="https://www.redcross.org/about-us/news-and-events/news/2026/disaster-teams-helping-in-hawaii-after-catastrophic-flooding.html" target="_blank" rel="noopener" class="source-chip">American Red Cross</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section class="section" id="section-donate" aria-label="Donate">
+    <div class="sec-header">
+      <div class="sec-eyebrow">Give what you can</div>
+      <h2>Financial donations<br><strong>reach people fastest.</strong></h2>
+      <p>Officials are asking donors to give financially through trusted organizations rather than drop off physical goods, which creates logistical strain on active relief operations.</p>
+    </div>
+
+    <div class="alert info">
+      <span class="alert-badge">Note</span>
+      <div class="alert-text">Jack Johnson and his wife committed $500,000 toward flood recovery — including $250,000 to the GoFundMe Hawaiʻi Flood Relief Fund. Kakoʻo Oʻahu has raised over $245,000 with donations matched dollar-for-dollar up to $200,000.</div>
+    </div>
+
+    <div class="div-label">Statewide &amp; multi-island funds</div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-tag">Native Hawaiian · Dollar match</div>
+          <h3>Hawaiian Council — Kakoʻo Oʻahu</h3>
+          <p>Housing stability, financial assistance, and recovery services. Donations matched dollar-for-dollar up to $200,000. Over $245,000 raised.</p>
+          <div class="card-foot"><a href="https://hawaiiancouncil.org" target="_blank" rel="noopener" class="btn btn-soft">Donate</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-tag">Molokaʻi · Direct</div>
+          <h3>MolokaiCares — Venmo</h3>
+          <p>Venmo @MolokaiCares to directly support those on Molokaʻi impacted by the storms. Maui Food Bank is also airlifting food supplies to Molokaʻi.</p>
+          <div class="card-foot"><a href="https://www.venmo.com/u/MolokaiCares" target="_blank" rel="noopener" class="btn btn-soft">@MolokaiCares</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">Statewide · Already deployed</div>
+          <h3>Hawaiʻi Community Foundation — Stronger Hawaiʻi Fund</h3>
+          <p>Distributed $30,000 to three nonprofits as of March 24 — Vibrant Hawaii, Key Project, and Hope Services. Flexible statewide disaster fund.</p>
+          <div class="card-foot"><a href="https://hawaiicommunityfoundation.org" target="_blank" rel="noopener" class="btn btn-amber">Donate</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">Community fund</div>
+          <h3>Aloha United Way — Community Relief Fund</h3>
+          <p>Distributed $760,000+ to community organizations. Supporting direct assistance, referrals, and frontline nonprofit organizations statewide.</p>
+          <div class="card-foot"><a href="https://auw.org" target="_blank" rel="noopener" class="btn btn-amber">Donate</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">North Shore</div>
+          <h3>North Shore Chamber of Commerce — Flood Relief Fund</h3>
+          <p>Purchasing tools and cleanup equipment for North Shore recovery. Donate online or by check payable to North Shore Chamber of Commerce.</p>
+          <div class="card-foot"><a href="https://gonorthshore.org" target="_blank" rel="noopener" class="btn btn-amber">Donate</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">Lost wages</div>
+          <h3>Hawaiʻi Workers Center — Storm Kokua Fund</h3>
+          <p>Financial assistance for employees who lost wages during flooding, with priority for hourly and gig workers who have no other safety nets.</p>
+          <div class="card-foot"><a href="https://hawaiiworkerscenter.org" target="_blank" rel="noopener" class="btn btn-amber">Apply or donate</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent slate"></div>
+        <div class="card-body">
+          <div class="card-tag slate">Disaster relief</div>
+          <h3>American Red Cross</h3>
+          <p>Text REDCROSS to 90999 or donate at redcross.org. Enabling sheltering, meals, and emotional support across Oʻahu and the state.</p>
+          <div class="card-foot"><a href="https://redcross.org" target="_blank" rel="noopener" class="btn btn-slate">Donate</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent slate"></div>
+        <div class="card-body">
+          <div class="card-tag slate">Catholic Charities</div>
+          <h3>Catholic Charities Hawaiʻi — Storm Recovery Fund</h3>
+          <p>Supporting underserved households most at risk of falling through gaps — immigrants, elderly, and low-income families statewide.</p>
+          <div class="card-foot"><a href="https://catholiccharitieshawaii.org" target="_blank" rel="noopener" class="btn btn-slate">Donate</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent slate"></div>
+        <div class="card-body">
+          <div class="card-tag slate">Verified campaigns</div>
+          <h3>GoFundMe — Hawaiʻi Flooding Relief Hub</h3>
+          <p>Centralized hub of verified fundraisers. GoFundMe's Trust &amp; Safety team is actively reviewing all campaigns and enabling direct cash grants to affected families.</p>
+          <div class="card-foot"><a href="https://gofundme.com" target="_blank" rel="noopener" class="btn btn-slate">Browse campaigns</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent slate"></div>
+        <div class="card-body">
+          <div class="card-tag slate">UH community</div>
+          <h3>UH Foundation</h3>
+          <p>Financial assistance for University of Hawaiʻi students, faculty, and staff impacted by flooding across the state.</p>
+          <div class="card-foot"><a href="https://uhfoundation.org" target="_blank" rel="noopener" class="btn btn-slate">Donate</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent slate"></div>
+        <div class="card-body">
+          <div class="card-tag slate">Neighbor islands</div>
+          <h3>Help Maui Rise — Neighbor Islands Spreadsheet</h3>
+          <p>Verified donation opportunities for people directly affected on Maui and neighbor islands, vetted by community members.</p>
+          <div class="card-foot"><a href="https://helpmauiland.org" target="_blank" rel="noopener" class="btn btn-slate">View spreadsheet</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sources">
+      <div class="sources-label">Verified sources</div>
+      <div class="sources-list">
+        <a href="https://www.staradvertiser.com/2026/03/28/hawaii-news/how-to-donate-receive-help-following-hawaiis-kona-low-storms/" target="_blank" rel="noopener" class="source-chip">Star-Advertiser</a>
+        <a href="https://www.civilbeat.org/2026/03/list-help-oahu-flooding-victims-heres-where-you-can-donate/" target="_blank" rel="noopener" class="source-chip">Civil Beat</a>
+        <a href="https://www.hawaiinewsnow.com/2026/03/24/how-help-donate-support-kona-low-flood-relief-recovery/" target="_blank" rel="noopener" class="source-chip">Hawaii News Now</a>
+        <a href="https://www.khon2.com/local-news/ap-how-to-help-those-impacted-by-the-hawaii-floods/" target="_blank" rel="noopener" class="source-chip">KHON2</a>
+        <a href="https://www.honolulumagazine.com/help-kona-low-storm-flooding/" target="_blank" rel="noopener" class="source-chip">Honolulu Magazine</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FARMERS -->
+  <section class="section" id="section-farmers" aria-label="Support farmers">
+    <div class="sec-header">
+      <div class="sec-eyebrow">Supporting our ʻāina</div>
+      <h2>$15M+ in agricultural losses<br><strong>across the islands.</strong></h2>
+      <p>Over 1,000 acres of farmland affected across Oʻahu, Maui, and Hawaiʻi Island. Our local food system needs both immediate help and long-term support to recover.</p>
+    </div>
+
+    <div class="alert info">
+      <span class="alert-badge">Long-term</span>
+      <div class="alert-text">The most sustainable way to support farmers long-term is to <strong>buy local produce</strong> whenever you can. Every purchase helps rebuild the farms and the food system that feeds Hawaiʻi.</div>
+    </div>
+
+    <div class="icard">
+      <div>
+        <h3>Hawaiʻi Farmers Union United — Flood Response Fund</h3>
+        <p>Direct financial relief for farmers across all islands who have suffered crop losses, equipment damage, and lost income due to the Kona Low flooding.</p>
+      </div>
+      <a href="https://bit.ly/HFUFARMERFLOODRESPONSEChef" target="_blank" rel="noopener" class="btn btn-primary">Donate to HFUU</a>
+    </div>
+
+    <div class="icard">
+      <div>
+        <h3>Hawaiʻi Ag Foundation &amp; Farm Bureau — Joint Relief</h3>
+        <p>Joint relief effort for farmers across Oʻahu, Maui, and Hawaiʻi Island. Direct financial assistance to farm operations impacted by flooding and infrastructure loss.</p>
+      </div>
+      <a href="https://hfbf.org" target="_blank" rel="noopener" class="btn btn-primary">Donate</a>
+    </div>
+
+    <div class="div-label">Additional farmer support</div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">Buy local · Direct support</div>
+          <h3>Shop at Farmers Markets</h3>
+          <p>Buying directly from farmers at local markets puts money immediately in their hands and supports the rebuilding of local food supply chains across the islands.</p>
+          <div class="card-foot"><a href="https://hfbf.org" target="_blank" rel="noopener" class="btn btn-amber">Find markets</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-body">
+          <div class="card-tag amber">CSA boxes · Oʻahu</div>
+          <h3>Subscribe to a Farm CSA</h3>
+          <p>Community Supported Agriculture boxes provide farms with upfront income to recover and replant. Many Oʻahu farms are offering CSA subscriptions now.</p>
+          <div class="card-foot"><a href="https://hfbf.org" target="_blank" rel="noopener" class="btn btn-amber">Find farms</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent slate"></div>
+        <div class="card-body">
+          <div class="card-tag slate">Disaster assistance</div>
+          <h3>USDA Emergency Loans — Farm Service Agency</h3>
+          <p>Federal emergency loans available for farmers who suffered losses. Contact the Hawaiʻi FSA office to apply for emergency assistance and operating loans.</p>
+          <div class="card-foot"><a href="https://fsa.usda.gov" target="_blank" rel="noopener" class="btn btn-slate">Learn more</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sources">
+      <div class="sources-label">Verified sources</div>
+      <div class="sources-list">
+        <a href="https://www.staradvertiser.com/2026/03/28/hawaii-news/how-to-donate-receive-help-following-hawaiis-kona-low-storms/" target="_blank" rel="noopener" class="source-chip">Star-Advertiser</a>
+        <a href="https://www.hawaiinewsnow.com/2026/03/24/how-help-donate-support-kona-low-flood-relief-recovery/" target="_blank" rel="noopener" class="source-chip">Hawaii News Now</a>
+        <a href="https://www.civilbeat.org/2026/03/list-help-oahu-flooding-victims-heres-where-you-can-donate/" target="_blank" rel="noopener" class="source-chip">Civil Beat</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL RESOURCES -->
+  <section class="section" id="section-all" aria-label="All resources">
+    <div class="sec-header">
+      <div class="sec-eyebrow">Complete directory</div>
+      <h2>All resources,<br><strong>all islands.</strong></h2>
+      <p>Every verified resource we've compiled for the 2026 Kona Low flooding across Hawaiʻi. Use the filter above to narrow by what you need.</p>
+    </div>
+
+    <div class="div-label">Emergency assistance</div>
+    <div class="grid">
+      <div class="card"><div class="card-accent rust"></div><div class="card-body"><div class="card-tag" style="color:var(--rust)">Helpline · Statewide</div><h3>2-1-1 Aloha United Way</h3><p>Free, 24-hour statewide helpline. Immediate referrals to shelter, food, and recovery resources across all islands.</p><div class="card-foot"><a href="tel:211" class="btn btn-rust">Call 2-1-1</a></div></div></div>
+      <div class="card"><div class="card-accent rust"></div><div class="card-body"><div class="card-tag" style="color:var(--rust)">Official form</div><h3>Storm Support Request</h3><p>Official state/county request form for direct assistance — housing, supplies, transportation, and more.</p><div class="card-foot"><a href="http://tinyurl.com/oahustormsupportReport" target="_blank" rel="noopener" class="btn btn-rust">Request support</a></div></div></div>
+      <div class="card"><div class="card-accent rust"></div><div class="card-body"><div class="card-tag" style="color:var(--rust)">Report damage</div><h3>Home Damage Report — Required</h3><p>File with City &amp; County to unlock federal relief funds and coordinate insurance. Do this first.</p><div class="card-foot"><a href="https://honolulu.gov/dem/homedamage" target="_blank" rel="noopener" class="btn btn-rust">File report</a></div></div></div>
+    </div>
+
+    <div class="div-label">Donate</div>
+    <div class="grid">
+      <div class="card"><div class="card-accent"></div><div class="card-body"><div class="card-tag">Native Hawaiian · Dollar match</div><h3>Kakoʻo Oʻahu</h3><p>Donations matched up to $200,000. Over $245,000 raised for housing stability and recovery.</p><div class="card-foot"><a href="https://hawaiiancouncil.org" target="_blank" rel="noopener" class="btn btn-soft">Donate</a></div></div></div>
+      <div class="card"><div class="card-accent"></div><div class="card-body"><div class="card-tag">Molokaʻi · Direct</div><h3>MolokaiCares</h3><p>Venmo @MolokaiCares to directly support those on Molokaʻi.</p><div class="card-foot"><a href="https://www.venmo.com/u/MolokaiCares" target="_blank" rel="noopener" class="btn btn-soft">@MolokaiCares</a></div></div></div>
+      <div class="card"><div class="card-accent amber"></div><div class="card-body"><div class="card-tag amber">Statewide</div><h3>Aloha United Way — Community Relief Fund</h3><p>$760,000+ distributed. Supporting direct assistance and frontline nonprofit organizations statewide.</p><div class="card-foot"><a href="https://auw.org" target="_blank" rel="noopener" class="btn btn-amber">Donate</a></div></div></div>
+      <div class="card"><div class="card-accent amber"></div><div class="card-body"><div class="card-tag amber">Statewide</div><h3>Hawaiʻi Community Foundation</h3><p>Stronger Hawaiʻi Fund — flexible statewide disaster fund already deployed to three nonprofits.</p><div class="card-foot"><a href="https://hawaiicommunityfoundation.org" target="_blank" rel="noopener" class="btn btn-amber">Donate</a></div></div></div>
+      <div class="card"><div class="card-accent slate"></div><div class="card-body"><div class="card-tag slate">Disaster relief</div><h3>American Red Cross</h3><p>Text REDCROSS to 90999. Sheltering, meals, and emotional support statewide.</p><div class="card-foot"><a href="https://redcross.org" target="_blank" rel="noopener" class="btn btn-slate">Donate</a></div></div></div>
+      <div class="card"><div class="card-accent slate"></div><div class="card-body"><div class="card-tag slate">Verified campaigns</div><h3>GoFundMe Hawaiʻi Relief Hub</h3><p>Centralized hub of verified fundraisers vetted by GoFundMe's Trust &amp; Safety team.</p><div class="card-foot"><a href="https://gofundme.com" target="_blank" rel="noopener" class="btn btn-slate">Browse</a></div></div></div>
+    </div>
+
+    <div class="div-label">Volunteer</div>
+    <div class="grid">
+      <div class="card"><div class="card-accent"></div><div class="card-body"><div class="card-tag">Official registration</div><h3>Oʻahu Flood Relief Volunteers</h3><p>No experience needed. Cleanup, distribution, wellness checks, logistics, and community care.</p><div class="card-foot"><a href="https://forms.gle/73vKH6RxbGHEsuvk6" target="_blank" rel="noopener" class="btn btn-soft">Register</a></div></div></div>
+      <div class="card"><div class="card-accent"></div><div class="card-body"><div class="card-tag">Cleanup — North Shore</div><h3>Lā Hui Foundation</h3><p>Cleanup crews, wellness checks, supply distribution, and resilience hub on the North Shore.</p><div class="card-foot"><a href="https://www.lahuifoundation.org" target="_blank" rel="noopener" class="btn btn-soft">Sign up</a></div></div></div>
+      <div class="card"><div class="card-accent amber"></div><div class="card-body"><div class="card-tag amber">Community cleanup</div><h3>808 Cleanups</h3><p>Organized cleanups in flood-affected areas. Check their social channels for current locations.</p><div class="card-foot"><a href="https://808cleanups.org" target="_blank" rel="noopener" class="btn btn-amber">See locations</a></div></div></div>
+    </div>
+
+    <div class="div-label">Farmers &amp; ʻāina</div>
+    <div class="grid">
+      <div class="card"><div class="card-accent amber"></div><div class="card-body"><div class="card-tag amber">Farmer relief</div><h3>Hawaiʻi Farmers Union United</h3><p>Flood Response Fund for farmers across all islands with crop losses, equipment damage, and lost income.</p><div class="card-foot"><a href="https://bit.ly/HFUFARMERFLOODRESPONSEChef" target="_blank" rel="noopener" class="btn btn-amber">Donate to HFUU</a></div></div></div>
+      <div class="card"><div class="card-accent amber"></div><div class="card-body"><div class="card-tag amber">Farmer relief · Multi-island</div><h3>Hawaiʻi Ag Foundation &amp; Farm Bureau</h3><p>Joint relief for farmers on Oʻahu, Maui, and Hawaiʻi Island.</p><div class="card-foot"><a href="https://hfbf.org" target="_blank" rel="noopener" class="btn btn-amber">Donate</a></div></div></div>
+      <div class="card"><div class="card-accent slate"></div><div class="card-body"><div class="card-tag slate">Molokaʻi</div><h3>MolokaiCares</h3><p>Supporting Molokaʻi farmers and families directly. Venmo @MolokaiCares.</p><div class="card-foot"><a href="https://www.venmo.com/u/MolokaiCares" target="_blank" rel="noopener" class="btn btn-slate">@MolokaiCares</a></div></div></div>
+    </div>
+
+    <div class="sources">
+      <div class="sources-label">Data sourced from</div>
+      <div class="sources-list">
+        <a href="https://honolulu.gov" target="_blank" rel="noopener" class="source-chip">City &amp; County of Honolulu</a>
+        <a href="https://www.civilbeat.org/2026/03/list-help-oahu-flooding-victims-heres-where-you-can-donate/" target="_blank" rel="noopener" class="source-chip">Honolulu Civil Beat</a>
+        <a href="https://www.staradvertiser.com/2026/03/28/hawaii-news/how-to-donate-receive-help-following-hawaiis-kona-low-storms/" target="_blank" rel="noopener" class="source-chip">Honolulu Star-Advertiser</a>
+        <a href="https://www.hawaiinewsnow.com/2026/03/24/how-help-donate-support-kona-low-flood-relief-recovery/" target="_blank" rel="noopener" class="source-chip">Hawaii News Now</a>
+        <a href="https://www.khon2.com/kona-low/how-2-help-where-2-donate-for-recovery-efforts-following-severe-weather/" target="_blank" rel="noopener" class="source-chip">KHON2</a>
+        <a href="https://www.honolulumagazine.com/help-kona-low-storm-flooding/" target="_blank" rel="noopener" class="source-chip">Honolulu Magazine</a>
+        <a href="https://www.kitv.com" target="_blank" rel="noopener" class="source-chip">KITV4</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">Hawaiʻi Flood Relief Resources</div>
+    <div class="foot-tag">A community project of HackHawaii.org</div>
+    <p class="foot-desc">Resources compiled and verified from Honolulu Civil Beat, Honolulu Star-Advertiser, Hawaii News Now, KHON2, KITV4, Honolulu Magazine, and City &amp; County of Honolulu. Always verify information directly with organizations before visiting — details may change rapidly during active disaster response.</p>
+    <div class="foot-links">
+      <a href="http://tinyurl.com/oahustormsupportReport" target="_blank" rel="noopener" class="foot-link">Request support</a>
+      <a href="https://forms.gle/73vKH6RxbGHEsuvk6" target="_blank" rel="noopener" class="foot-link">Volunteer registration</a>
+      <a href="tel:211" class="foot-link">Call 2-1-1</a>
+      <a href="https://honolulu.gov/dem/homedamage" target="_blank" rel="noopener" class="foot-link">Report damage</a>
+      <a href="https://www.lahuifoundation.org" target="_blank" rel="noopener" class="foot-link">Lā Hui Foundation</a>
+    </div>
+    <a href="index.html" class="foot-home">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 10L4 6l4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to HackHawaii.org
+    </a>
+    <div class="foot-bottom">
+      Last updated March 28, 2026 &nbsp;·&nbsp; HackHawaii.org is a 501(c)(3) nonprofit organization &nbsp;·&nbsp; <a href="index.html" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">hackhawaii.org</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.need-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed','false');
+  });
+  const sec = document.getElementById('section-' + id);
+  if (sec) sec.classList.add('visible');
+  if (btn) { btn.classList.add('active'); btn.setAttribute('aria-pressed','true'); }
+  document.getElementById('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+// Show "I need help" by default
+document.addEventListener('DOMContentLoaded', function() {
+  const firstBtn = document.querySelector('.need-btn');
+  if (firstBtn) firstBtn.setAttribute('aria-pressed','true');
+});
+</script>
+</body>
+</html>
