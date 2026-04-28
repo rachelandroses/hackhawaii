@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HackHawaii Girls — Summer 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream:  #fdfaf5;
+    --blush:  #fce8ee;
+    --rose:   #e8748a;
+    --berry:  #c23b5a;
+    --lilac:  #ede9ff;
+    --violet: #7c5cbf;
+    --sun:    #fff0b3;
+    --sun-d:  #f0b429;
+    --forest: #2c4a3e;
+    --sage:   #4a7c6a;
+    --tan:    #c9b99a;
+    --tan-d:  #a0896b;
+    --mid:    #6b6b6b;
+    --dark:   #1e1e2e;
+    --white:  #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 2.5rem;
+    background: rgba(253,250,245,0.94);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(232,116,138,0.14);
+  }
+  .nav-left { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+  .nav-parent { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--forest); }
+  .nav-sep { color: var(--tan); margin: 0 0.3rem; }
+  .nav-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; font-style: italic; color: var(--rose); }
+  .nav-cta {
+    background: var(--rose); color: white; padding: 0.55rem 1.4rem;
+    border-radius: 100px; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--berry); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(150deg, #1a0630 0%, #2e0f52 35%, #4a1870 65%, #1e0a38 100%);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 9rem 3rem 5rem; position: relative; overflow: hidden;
+  }
+  .orb {
+    position: absolute; border-radius: 50%; pointer-events: none; filter: blur(80px);
+  }
+  .orb1 { width: 550px; height: 550px; background: rgba(232,116,138,0.2); top: -150px; right: -80px; animation: drift 14s ease-in-out infinite alternate; }
+  .orb2 { width: 380px; height: 380px; background: rgba(124,92,191,0.25); bottom: -80px; left: -60px; animation: drift 10s ease-in-out infinite alternate-reverse; }
+  .orb3 { width: 220px; height: 220px; background: rgba(240,180,41,0.18); top: 35%; right: 22%; animation: drift 16s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: translate(0,0); } to { transform: translate(25px,-35px); } }
+
+  /* sparkle dots */
+  .sparkle { position: absolute; pointer-events: none; }
+  .sparkle::before, .sparkle::after {
+    content: '✦'; position: absolute; color: rgba(255,255,255,0.25);
+    animation: twinkle 3s ease-in-out infinite alternate;
+  }
+  .s1 { top: 20%; left: 60%; font-size: 1rem; }
+  .s2 { top: 60%; left: 75%; font-size: 0.6rem; animation-delay: 1s; }
+  .s3 { top: 35%; left: 85%; font-size: 0.8rem; animation-delay: 2s; }
+  @keyframes twinkle { from { opacity: 0.1; transform: scale(0.8); } to { opacity: 0.6; transform: scale(1.2); } }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(255,200,220,0.75);
+    margin-bottom: 1.75rem;
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: rgba(255,180,200,0.5); display: block; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,230,240,0.9); font-size: 0.78rem; font-weight: 500;
+    padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1rem;
+    animation: fadeUp 0.7s 0.05s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 8vw, 6.5rem);
+    font-weight: 300; line-height: 1.0; letter-spacing: -0.02em;
+    color: white; margin-bottom: 1.75rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero-title em { font-style: italic; color: var(--blush); }
+  .hero-title .accent { color: var(--sun); }
+
+  .hero-sub {
+    font-size: 1.05rem; font-weight: 300; line-height: 1.8;
+    color: rgba(255,230,240,0.7); max-width: 520px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-pills {
+    display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+    animation: fadeUp 0.7s 0.25s ease both;
+  }
+  .pill {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,235,245,0.9); font-size: 0.83rem; font-weight: 400;
+    padding: 0.45rem 1rem; border-radius: 100px;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .btn-rose {
+    background: var(--rose); color: white;
+    padding: 0.95rem 2.4rem; border-radius: 100px;
+    font-weight: 600; font-size: 0.88rem; letter-spacing: 0.06em;
+    text-decoration: none; text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 8px 30px rgba(232,116,138,0.4);
+  }
+  .btn-rose:hover { background: var(--berry); transform: translateY(-2px); }
+  .btn-ghost-light {
+    background: transparent; color: rgba(255,235,245,0.8);
+    padding: 0.95rem 2.4rem; border-radius: 100px;
+    font-weight: 500; font-size: 0.88rem; letter-spacing: 0.06em;
+    text-decoration: none; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost-light:hover { border-color: var(--blush); color: white; }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 3rem; }
+  .section-inner { max-width: 1080px; margin: 0 auto; }
+  .sec-label {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--rose); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .sec-label::before { content: ''; width: 22px; height: 1px; background: var(--rose); display: block; }
+  .sec-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.1;
+    letter-spacing: -0.01em; color: var(--dark); margin-bottom: 1rem;
+  }
+  .sec-title em { font-style: italic; color: var(--rose); }
+  .sec-sub { font-size: 1rem; font-weight: 300; color: var(--mid); line-height: 1.8; max-width: 560px; margin-bottom: 3rem; }
+
+  /* ── ABOUT LEAN IN ── */
+  #about { background: white; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-text p { font-size: 0.95rem; font-weight: 300; color: var(--mid); line-height: 1.85; margin-bottom: 1.25rem; }
+  .about-text p strong { color: var(--dark); font-weight: 500; }
+  .about-text a { color: var(--violet); text-decoration: underline; text-underline-offset: 3px; }
+
+  .lean-in-box {
+    background: linear-gradient(135deg, #f8f4ff 0%, #fff0f5 100%);
+    border: 1px solid rgba(124,92,191,0.15); border-radius: 16px;
+    padding: 2.5rem;
+  }
+  .lean-in-box .logo-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600; color: var(--violet);
+    margin-bottom: 0.4rem; letter-spacing: 0.02em;
+  }
+  .lean-in-box .logo-sub {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(124,92,191,0.6); margin-bottom: 1.5rem;
+  }
+  .lean-in-box p { font-size: 0.88rem; font-weight: 300; color: var(--mid); line-height: 1.8; margin-bottom: 1.25rem; }
+  .lean-in-box .stat-row { display: flex; gap: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(124,92,191,0.1); }
+  .lean-in-stat .num {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
+    font-weight: 300; color: var(--violet); line-height: 1;
+  }
+  .lean-in-stat .lbl { font-size: 0.72rem; font-weight: 400; color: var(--mid); letter-spacing: 0.06em; margin-top: 0.2rem; }
+
+  /* ── FACILITATOR ── */
+  #facilitator { background: var(--cream); }
+  .facilitator-card {
+    background: var(--forest); border-radius: 20px;
+    display: grid; grid-template-columns: 280px 1fr; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(44,74,62,0.2);
+  }
+  .fac-left {
+    background: linear-gradient(160deg, #3d6455, #2c4a3e);
+    padding: 3rem 2rem; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .fac-avatar {
+    width: 100px; height: 100px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blush), var(--lilac));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; margin-bottom: 1.5rem;
+    border: 3px solid rgba(255,255,255,0.15);
+  }
+  .fac-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: white; margin-bottom: 0.3rem; }
+  .fac-role { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 1.25rem; }
+  .fac-google {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,230,210,0.9); font-size: 0.77rem; font-weight: 500;
+    padding: 0.35rem 0.9rem; border-radius: 100px;
+  }
+  .fac-right { padding: 3rem 2.5rem; }
+  .fac-right blockquote {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+    font-weight: 300; font-style: italic; color: rgba(255,255,255,0.85);
+    line-height: 1.5; margin-bottom: 2rem;
+    padding-left: 1.5rem; border-left: 2px solid var(--rose);
+  }
+  .fac-right p { font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 1rem; }
+  .fac-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .fac-chip {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,230,240,0.85); font-size: 0.75rem; font-weight: 400;
+    padding: 0.3rem 0.8rem; border-radius: 100px;
+  }
+
+  /* ── CURRICULUM ── */
+  #curriculum { background: white; }
+  .curr-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; align-items: start; }
+  .curr-meta { display: flex; flex-direction: column; gap: 1rem; }
+  .curr-meta-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 1.25rem; border-radius: 10px;
+    background: var(--cream); border: 1px solid rgba(0,0,0,0.06);
+  }
+  .curr-meta-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .curr-meta-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.2rem; }
+  .curr-meta-val { font-size: 0.9rem; font-weight: 400; color: var(--dark); }
+
+  /* phase blocks */
+  .phases { display: flex; flex-direction: column; gap: 2rem; }
+  .phase-block { border-radius: 14px; overflow: hidden; }
+
+  .phase-header {
+    display: flex; align-items: center; gap: 1.25rem;
+    padding: 1.25rem 1.75rem;
+  }
+  .phase-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.5rem;
+    font-weight: 300; line-height: 1; flex-shrink: 0; opacity: 0.5;
+  }
+  .phase-header-text {}
+  .phase-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; margin-bottom: 0.15rem; }
+  .phase-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; line-height: 1.2; }
+  .phase-sessions { font-size: 0.75rem; font-weight: 400; opacity: 0.6; margin-top: 0.15rem; }
+
+  .phase-sessions-list { display: flex; flex-direction: column; }
+  .session-row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.85rem 1.75rem;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.88rem; font-weight: 400; color: var(--dark);
+    transition: background 0.15s;
+  }
+  .session-row:hover { background: rgba(0,0,0,0.02); }
+  .session-num {
+    width: 24px; height: 24px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.72rem; font-weight: 600; flex-shrink: 0;
+  }
+
+  /* kick-off: yellow */
+  .phase-kickoff .phase-header { background: #fff8cc; }
+  .phase-kickoff .phase-num { color: #b8860b; }
+  .phase-kickoff .phase-sessions-list { background: #fffdf0; }
+  .phase-kickoff .session-num { background: #fde68a; color: #92600a; }
+
+  /* part 1: lilac */
+  .phase-1 .phase-header { background: #ede9ff; }
+  .phase-1 .phase-num { color: var(--violet); }
+  .phase-1 .phase-title { color: var(--violet); }
+  .phase-1 .phase-sessions-list { background: #f8f5ff; }
+  .phase-1 .session-num { background: var(--lilac); color: var(--violet); }
+
+  /* part 2: blush */
+  .phase-2 .phase-header { background: #fce8ee; }
+  .phase-2 .phase-num { color: var(--rose); }
+  .phase-2 .phase-title { color: var(--berry); }
+  .phase-2 .phase-sessions-list { background: #fff5f7; }
+  .phase-2 .session-num { background: var(--blush); color: var(--berry); }
+
+  /* part 3: sage */
+  .phase-3 .phase-header { background: #e8f5f0; }
+  .phase-3 .phase-num { color: var(--sage); }
+  .phase-3 .phase-title { color: var(--forest); }
+  .phase-3 .phase-sessions-list { background: #f4fbf8; }
+  .phase-3 .session-num { background: #c5e8da; color: var(--forest); }
+
+  /* bonus */
+  .phase-bonus .phase-header { background: linear-gradient(90deg, #fce8ee, #ede9ff); }
+  .phase-bonus .phase-num { color: var(--rose); }
+  .phase-bonus .phase-sessions-list { background: #fdf8ff; }
+  .phase-bonus .session-num { background: linear-gradient(135deg, var(--blush), var(--lilac)); color: var(--berry); }
+
+  /* ── LOGISTICS ── */
+  #logistics { background: var(--cream); }
+  .logistics-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+  .log-card {
+    background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: 14px;
+    padding: 2rem; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .log-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .log-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .log-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.4rem; }
+  .log-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--dark); margin-bottom: 0.5rem; }
+  .log-card p { font-size: 0.87rem; font-weight: 300; color: var(--mid); line-height: 1.7; }
+
+  /* ── SCHEDULE ── */
+  #schedule { background: white; }
+  .schedule-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start; }
+  .schedule-list { display: flex; flex-direction: column; }
+  .week-row {
+    display: flex; align-items: center; gap: 1.25rem;
+    padding: 0.9rem 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .week-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+    font-weight: 300; color: var(--rose); width: 40px; text-align: center; flex-shrink: 0;
+  }
+  .week-info {}
+  .week-date { font-size: 0.78rem; font-weight: 500; color: var(--mid); margin-bottom: 0.1rem; }
+  .week-topic { font-size: 0.9rem; font-weight: 400; color: var(--dark); }
+  .week-tag {
+    margin-left: auto; flex-shrink: 0;
+    font-size: 0.67rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 100px;
+  }
+  .tag-violet { background: var(--lilac); color: var(--violet); }
+  .tag-rose   { background: var(--blush); color: var(--berry); }
+  .tag-green  { background: #e0f5ec; color: var(--forest); }
+  .tag-sun    { background: var(--sun); color: #7a5c00; }
+
+  .schedule-aside {
+    background: linear-gradient(145deg, #1a0630 0%, #2e0f52 100%);
+    border-radius: 16px; padding: 2.5rem; color: white;
+  }
+  .schedule-aside h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+    font-weight: 300; color: white; margin-bottom: 1.5rem;
+  }
+  .aside-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.87rem; font-weight: 300; color: rgba(255,230,240,0.75);
+  }
+  .aside-item:last-child { border-bottom: none; }
+  .aside-item strong { color: rgba(255,230,240,0.95); font-weight: 500; }
+  .aside-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); flex-shrink: 0; margin-top: 6px; }
+
+  /* ── SIGN UP ── */
+  #signup { background: linear-gradient(150deg, #1a0630 0%, #2e0f52 50%, #4a1870 100%); position: relative; overflow: hidden; }
+  #signup .orb { position: absolute; }
+  #signup .orb1 { width: 400px; height: 400px; background: rgba(232,116,138,0.15); top: -100px; right: -60px; filter: blur(80px); }
+  #signup .orb2 { width: 300px; height: 300px; background: rgba(124,92,191,0.2); bottom: -60px; left: -40px; filter: blur(70px); }
+
+  .signup-inner {
+    max-width: 1080px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+    position: relative; z-index: 1;
+  }
+  .signup-left .sec-label { color: rgba(255,180,210,0.8); }
+  .signup-left .sec-label::before { background: rgba(255,180,210,0.6); }
+  .signup-left .sec-title { color: white; }
+  .signup-left .sec-title em { color: var(--blush); }
+  .signup-left p { font-size: 0.93rem; font-weight: 300; color: rgba(255,230,240,0.65); line-height: 1.85; margin-bottom: 1.5rem; }
+  .signup-left ul { list-style: none; }
+  .signup-left ul li {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.9rem; font-weight: 300; color: rgba(255,230,240,0.75);
+    padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .signup-left ul li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--rose); flex-shrink: 0; }
+
+  .signup-form {
+    background: white; border-radius: 16px; padding: 2.5rem;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+  }
+  .signup-form h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.6rem;
+    font-weight: 400; color: var(--dark); margin-bottom: 0.35rem;
+  }
+  .signup-form .form-sub {
+    font-size: 0.83rem; font-weight: 300; color: var(--mid);
+    margin-bottom: 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee;
+  }
+  .form-group { margin-bottom: 1.1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.1rem; }
+  label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.4rem; }
+  input, select, textarea {
+    width: 100%; background: #fafafa; border: 1px solid #e5e5e5;
+    border-radius: 8px; padding: 0.75rem 1rem;
+    font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 400;
+    color: var(--dark); transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--rose); box-shadow: 0 0 0 3px rgba(232,116,138,0.12);
+  }
+  textarea { resize: vertical; min-height: 80px; }
+  select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+
+  .format-toggle { display: flex; gap: 0.75rem; }
+  .format-btn {
+    flex: 1; padding: 0.7rem; border-radius: 8px;
+    border: 1.5px solid #e5e5e5; background: #fafafa;
+    font-family: 'Outfit', sans-serif; font-size: 0.83rem; font-weight: 500;
+    color: var(--mid); cursor: pointer; transition: all 0.2s; text-align: center;
+  }
+  .format-btn.active, .format-btn:hover { border-color: var(--rose); background: var(--blush); color: var(--berry); }
+
+  .form-divider { height: 1px; background: #eee; margin: 1.25rem 0; }
+  .section-heading { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 1rem; }
+
+  .submit-btn {
+    width: 100%; background: var(--rose); color: white;
+    border: none; border-radius: 100px; padding: 1rem;
+    font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.88rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 6px 24px rgba(232,116,138,0.4);
+    margin-top: 0.5rem;
+  }
+  .submit-btn:hover { background: var(--berry); transform: translateY(-1px); }
+  .form-note { font-size: 0.72rem; font-weight: 300; color: var(--mid); text-align: center; margin-top: 0.75rem; }
+
+  /* ── FOOTER ── */
+  footer { background: #0f0a1e; padding: 3.5rem 3rem; }
+  .footer-inner { max-width: 1080px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.75rem; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: white; }
+  .footer-logo em { font-style: italic; color: var(--rose); }
+  .footer-tagline { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.3); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--rose); }
+  .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.18); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    nav { padding: 1rem 1.5rem; }
+    section { padding: 4.5rem 1.5rem; }
+    .about-grid, .curr-intro, .schedule-grid, .signup-inner, .facilitator-card { grid-template-columns: 1fr; }
+    .logistics-grid { grid-template-columns: 1fr 1fr; }
+    .facilitator-card .fac-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .form-row { grid-template-columns: 1fr; }
+    #hero { padding: 8rem 1.5rem 4rem; }
+  }
+  @media (max-width: 580px) {
+    .logistics-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-left" href="hackhawaii.html" style="text-decoration:none;">
+    <span class="nav-parent">HackHawaii</span>
+    <span class="nav-sep">/</span>
+    <span class="nav-sub">Girls</span>
+  </a>
+  <a href="https://docs.google.com/forms/d/1Mnd_1k2u8VJY9pKwmx0h9B23HaRH9E-Am4RWIvm_-Mo/viewform" target="_blank" class="nav-cta">Apply Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <span class="sparkle s1">✦</span>
+  <span class="sparkle s2">✦</span>
+  <span class="sparkle s3">✦</span>
+
+  <div style="max-width:680px; position:relative; z-index:2;">
+    <div class="hero-eyebrow">HackHawaii Girls · Summer 2026</div>
+    <div class="hero-badge">🌺 A Lean In Girls Program · Honolulu, Hawaiʻi</div>
+    <h1 class="hero-title">
+      Built to <em>Lead.</em><br>
+      Born to <span class="accent">Shine.</span>
+    </h1>
+    <p class="hero-sub">
+      A 10-week leadership program for girls ages 10–15 in Hawaiʻi, powered by the Lean In Girls curriculum and facilitated by a female tech leader who has worked at Google.
+    </p>
+    <div class="hero-pills">
+      <div class="pill">📅 10 Saturdays · Starting May 29</div>
+      <div class="pill">⏰ 10:00 AM HST</div>
+      <div class="pill">📍 Ala Moana or Zoom</div>
+      <div class="pill">👧 Ages 10–15</div>
+      <div class="pill">✨ Free to attend</div>
+    </div>
+    <div class="hero-actions">
+      <a href="https://docs.google.com/forms/d/1Mnd_1k2u8VJY9pKwmx0h9B23HaRH9E-Am4RWIvm_-Mo/viewform" target="_blank" class="btn-rose">Apply for Summer 2026</a>
+      <a href="#curriculum" class="btn-ghost-light">See the Curriculum</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT LEAN IN -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="sec-label">About the Program</div>
+        <h2 class="sec-title">Leadership starts <em>here</em></h2>
+        <p>HackHawaii Girls is a free summer leadership program designed to help young women in Hawaiʻi discover their strengths, challenge stereotypes, and build the confidence to go after anything they want.</p>
+        <p>We partner with <strong>Lean In Girls</strong> — a program created by <strong>Sheryl Sandberg's Lean In Foundation</strong> — to deliver a structured, research-backed curriculum that has empowered thousands of girls worldwide.</p>
+        <p>Our program is facilitated by a <strong>female tech leader with experience at Google</strong>, bringing real-world perspective on what it means to build a career, lead teams, and break barriers in one of the world's most competitive industries.</p>
+        <p>Sessions are held every Saturday morning — <strong>in person at Ala Moana on Oʻahu</strong> or <strong>live on Zoom</strong> — so girls from across the island can participate.</p>
+        <p>As a special bonus woven throughout the program, girls will also learn how to <strong>use AI tools safely and responsibly</strong> — practical skills that will serve them in school, future careers, and everyday life.</p>
+      </div>
+      <div class="lean-in-box">
+        <div class="logo-line">Lean In Girls</div>
+        <div class="logo-sub">A program by the Lean In Foundation</div>
+        <p>Lean In Girls is a free curriculum designed to help girls ages 8–18 develop confidence, build leadership skills, and learn to advocate for themselves. It was created in partnership with world-class researchers and educators.</p>
+        <p>The curriculum covers values, strengths, resilience, risk-taking, goal-setting, and self-advocacy — everything girls need to thrive in school, work, and life.</p>
+        <p>Learn more at <a href="https://leanin.org/girls" target="_blank">leanin.org/girls</a></p>
+        <div class="stat-row">
+          <div class="lean-in-stat"><div class="num">10</div><div class="lbl">Sessions</div></div>
+          <div class="lean-in-stat"><div class="num">10–15</div><div class="lbl">Ages</div></div>
+          <div class="lean-in-stat"><div class="num">Free</div><div class="lbl">Always</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITATOR -->
+<section id="facilitator">
+  <div class="section-inner">
+    <div class="sec-label">Your Facilitator</div>
+    <h2 class="sec-title" style="margin-bottom:2rem;">Led by someone who <em>has walked the path</em></h2>
+    <div class="facilitator-card">
+      <div class="fac-left">
+        <div class="fac-avatar">👩🏽‍💻</div>
+        <div class="fac-name">Rachel</div>
+        <div class="fac-role">Facilitator & Founder</div>
+        <div class="fac-google">🔵 Formerly at Google</div>
+      </div>
+      <div class="fac-right">
+        <blockquote>"I grew up without a roadmap. I want every girl here to have the confidence and tools I had to figure out on my own."</blockquote>
+        <p>Rachel is a Hawaii-based entrepreneur, nonprofit founder, and self-taught technologist who has worked her way up to major tech companies including Google. She founded HackHawaii to bring AI and technology education to communities that deserve access to it.</p>
+        <p>She brings a unique blend of lived experience — navigating male-dominated industries, building companies from scratch, and staying rooted in the spirit of aloha — to every session she leads.</p>
+        <div class="fac-chips">
+          <span class="fac-chip">🌺 Kama'āina</span>
+          <span class="fac-chip">🤖 AI & Tech Education</span>
+          <span class="fac-chip">🚀 Nonprofit Founder</span>
+          <span class="fac-chip">🔵 Formerly Google</span>
+          <span class="fac-chip">👑 Miss Hawaii USA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section id="curriculum">
+  <div class="section-inner">
+    <div class="curr-intro">
+      <div>
+        <div class="sec-label">What We'll Cover</div>
+        <h2 class="sec-title">The <em>Curriculum</em></h2>
+        <p class="sec-sub" style="margin-bottom:0;">10 sessions across 4 phases — each one building on the last. By the end, every girl will have a clearer sense of who she is, what she stands for, and how to go after it.</p>
+      </div>
+      <div class="curr-meta">
+        <div class="curr-meta-item"><div class="curr-meta-icon">🗓️</div><div><div class="curr-meta-label">Duration</div><div class="curr-meta-val">10 weeks · Saturdays 10:00–11:30 AM</div></div></div>
+        <div class="curr-meta-item"><div class="curr-meta-icon">📍</div><div><div class="curr-meta-label">Location</div><div class="curr-meta-val">Ala Moana, Honolulu or Zoom (your choice)</div></div></div>
+        <div class="curr-meta-item"><div class="curr-meta-icon">👧</div><div><div class="curr-meta-label">Who It's For</div><div class="curr-meta-val">Girls ages 10–15 in Hawaiʻi</div></div></div>
+        <div class="curr-meta-item"><div class="curr-meta-icon">🎓</div><div><div class="curr-meta-label">Curriculum Partner</div><div class="curr-meta-val">Lean In Girls by Lean In Foundation</div></div></div>
+        <div class="curr-meta-item"><div class="curr-meta-icon">💵</div><div><div class="curr-meta-label">Cost</div><div class="curr-meta-val">Free — always</div></div></div>
+      </div>
+    </div>
+
+    <div class="phases">
+
+      <!-- KICK-OFF -->
+      <div class="phase-block phase-kickoff">
+        <div class="phase-header">
+          <div class="phase-num">✦</div>
+          <div class="phase-header-text">
+            <div class="phase-tag">Week 1</div>
+            <div class="phase-title">Kick-Off Session</div>
+            <div class="phase-sessions">Setting the vibe, meeting the cohort, and declaring what you want</div>
+          </div>
+        </div>
+        <div class="phase-sessions-list">
+          <div class="session-row"><span class="session-num" style="background:#fde68a;color:#7a5a00;">1</span>Kick-Off Session — Meet your cohort and set your intentions for the 10 weeks ahead</div>
+        </div>
+      </div>
+
+      <!-- PART 1 -->
+      <div class="phase-block phase-1">
+        <div class="phase-header">
+          <div class="phase-num">01</div>
+          <div class="phase-header-text">
+            <div class="phase-tag">Weeks 2–3 · Part 1</div>
+            <div class="phase-title">Celebrating Girls' Leadership Superpowers</div>
+            <div class="phase-sessions">2 sessions · Discover what makes you powerful</div>
+          </div>
+        </div>
+        <div class="phase-sessions-list">
+          <div class="session-row"><span class="session-num">2</span>Put Your Values into Action</div>
+          <div class="session-row"><span class="session-num">3</span>Lean into Your Strengths</div>
+        </div>
+      </div>
+
+      <!-- PART 2 -->
+      <div class="phase-block phase-2">
+        <div class="phase-header">
+          <div class="phase-num">02</div>
+          <div class="phase-header-text">
+            <div class="phase-tag">Weeks 4–7 · Part 2</div>
+            <div class="phase-title">Challenging Stereotypes & Inspiring Girls to Go for It</div>
+            <div class="phase-sessions">4 sessions · Break barriers and set bold goals</div>
+          </div>
+        </div>
+        <div class="phase-sessions-list">
+          <div class="session-row"><span class="session-num">4</span>Challenge Stereotypes</div>
+          <div class="session-row"><span class="session-num">5</span>Reframe Failure</div>
+          <div class="session-row"><span class="session-num">6</span>Embrace Risk-Taking</div>
+          <div class="session-row"><span class="session-num">7</span>Set Bold &amp; Healthy Goals</div>
+        </div>
+      </div>
+
+      <!-- PART 3 -->
+      <div class="phase-block phase-3">
+        <div class="phase-header">
+          <div class="phase-num">03</div>
+          <div class="phase-header-text">
+            <div class="phase-tag">Weeks 8–11 · Part 3</div>
+            <div class="phase-title">Overcoming Bias &amp; Barriers</div>
+            <div class="phase-sessions">4 sessions · Learn to assert yourself and defy the doubters</div>
+          </div>
+        </div>
+        <div class="phase-sessions-list">
+          <div class="session-row"><span class="session-num">8</span>Explore the Layers of You</div>
+          <div class="session-row"><span class="session-num">9</span>Know When to Go for It</div>
+          <div class="session-row"><span class="session-num">10</span>Assert Yourself, Your Way</div>
+          <div class="session-row"><span class="session-num">11</span>Defy the Doubters</div>
+        </div>
+      </div>
+
+      <!-- BONUS -->
+      <div class="phase-block phase-bonus">
+        <div class="phase-header">
+          <div class="phase-num">🌺</div>
+          <div class="phase-header-text">
+            <div class="phase-tag">Week 12 · Bonus</div>
+            <div class="phase-title">Celebration &amp; Graduation</div>
+            <div class="phase-sessions">You made it — share your growth, celebrate your cohort</div>
+          </div>
+        </div>
+        <div class="phase-sessions-list">
+          <div class="session-row"><span class="session-num" style="background:linear-gradient(135deg,#fce8ee,#ede9ff);color:#c23b5a;">✦</span>Celebrate — Share Backs, Certificates &amp; Community</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LOGISTICS -->
+<section id="logistics">
+  <div class="section-inner">
+    <div class="sec-label">Program Details</div>
+    <h2 class="sec-title">Everything you need <em>to know</em></h2>
+    <p class="sec-sub">Simple, flexible, and designed for busy island families.</p>
+    <div class="logistics-grid">
+      <div class="log-card">
+        <div class="log-icon">📅</div>
+        <div class="log-label">Dates</div>
+        <h3>May 29 – Aug 14, 2026</h3>
+        <p>10 Saturdays starting May 29, 2026. Sessions run weekly. Final celebration session in mid-August.</p>
+      </div>
+      <div class="log-card">
+        <div class="log-icon">⏰</div>
+        <div class="log-label">Time</div>
+        <h3>10:00 AM HST</h3>
+        <p>Every Saturday morning, 10:00–11:30 AM Hawaii Standard Time. Sessions run approximately 90 minutes.</p>
+      </div>
+      <div class="log-card">
+        <div class="log-icon">📍</div>
+        <div class="log-label">Location</div>
+        <h3>Ala Moana or Zoom</h3>
+        <p>Attend in person at our Ala Moana, Honolulu location, or join live via Zoom. You choose what works for your family each week.</p>
+      </div>
+      <div class="log-card">
+        <div class="log-icon">👧</div>
+        <div class="log-label">Who</div>
+        <h3>Girls Ages 10–15</h3>
+        <p>Open to girls across Oʻahu and Hawaii. No prior experience with leadership, tech, or programs required. Beginners are welcome.</p>
+      </div>
+      <div class="log-card">
+        <div class="log-icon">💵</div>
+        <div class="log-label">Cost</div>
+        <h3>Completely Free</h3>
+        <p>HackHawaii Girls is free for all participants. We believe every girl in Hawaiʻi deserves access to quality leadership education regardless of income.</p>
+      </div>
+      <div class="log-card">
+        <div class="log-icon">📦</div>
+        <div class="log-label">What to Bring</div>
+        <h3>Just Yourself</h3>
+        <p>A journal or notebook is helpful but not required. In-person participants may want a small snack. Zoom participants just need a device and internet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+  <div class="section-inner">
+    <div class="sec-label">Weekly Schedule</div>
+    <h2 class="sec-title">Your <em>10 weeks</em></h2>
+    <p class="sec-sub">A snapshot of the full summer journey — every Saturday from May through August.</p>
+    <div class="schedule-grid">
+      <div class="schedule-list">
+        <div class="week-row"><span class="week-num">1</span><div class="week-info"><div class="week-date">Sat, May 29</div><div class="week-topic">Kick-Off Session</div></div><span class="week-tag tag-sun">Kick-Off</span></div>
+        <div class="week-row"><span class="week-num">2</span><div class="week-info"><div class="week-date">Sat, Jun 5</div><div class="week-topic">Put Your Values into Action</div></div><span class="week-tag tag-violet">Part 1</span></div>
+        <div class="week-row"><span class="week-num">3</span><div class="week-info"><div class="week-date">Sat, Jun 12</div><div class="week-topic">Lean into Your Strengths</div></div><span class="week-tag tag-violet">Part 1</span></div>
+        <div class="week-row"><span class="week-num">4</span><div class="week-info"><div class="week-date">Sat, Jun 19</div><div class="week-topic">Challenge Stereotypes</div></div><span class="week-tag tag-rose">Part 2</span></div>
+        <div class="week-row"><span class="week-num">5</span><div class="week-info"><div class="week-date">Sat, Jun 26</div><div class="week-topic">Reframe Failure</div></div><span class="week-tag tag-rose">Part 2</span></div>
+        <div class="week-row"><span class="week-num">6</span><div class="week-info"><div class="week-date">Sat, Jul 10</div><div class="week-topic">Embrace Risk-Taking</div></div><span class="week-tag tag-rose">Part 2</span></div>
+        <div class="week-row"><span class="week-num">7</span><div class="week-info"><div class="week-date">Sat, Jul 17</div><div class="week-topic">Set Bold &amp; Healthy Goals</div></div><span class="week-tag tag-rose">Part 2</span></div>
+        <div class="week-row"><span class="week-num">8</span><div class="week-info"><div class="week-date">Sat, Jul 24</div><div class="week-topic">Explore the Layers of You</div></div><span class="week-tag tag-green">Part 3</span></div>
+        <div class="week-row"><span class="week-num">9</span><div class="week-info"><div class="week-date">Sat, Jul 31</div><div class="week-topic">Know When to Go for It</div></div><span class="week-tag tag-green">Part 3</span></div>
+        <div class="week-row"><span class="week-num">10</span><div class="week-info"><div class="week-date">Sat, Aug 7</div><div class="week-topic">Assert Yourself, Your Way</div></div><span class="week-tag tag-green">Part 3</span></div>
+        <div class="week-row"><span class="week-num">11</span><div class="week-info"><div class="week-date">Sat, Aug 14</div><div class="week-topic">Defy the Doubters</div></div><span class="week-tag tag-green">Part 3</span></div>
+        <div class="week-row"><span class="week-num">✦</span><div class="week-info"><div class="week-date">Sat, Aug 21</div><div class="week-topic">Celebration &amp; Graduation 🌺</div></div><span class="week-tag tag-sun">Bonus</span></div>
+      </div>
+      <div class="schedule-aside">
+        <h3>What a session looks like</h3>
+        <div class="aside-item"><div class="aside-dot"></div><div><strong>Welcome circle (10 min)</strong> — Quick check-in, celebrations from the week, set intentions for today</div></div>
+        <div class="aside-item"><div class="aside-dot"></div><div><strong>Lesson &amp; discussion (35 min)</strong> — Dive into the week's topic with stories, research, and open conversation</div></div>
+        <div class="aside-item"><div class="aside-dot"></div><div><strong>Activity &amp; reflection (30 min)</strong> — Hands-on exercises, journaling, and group work to make it real</div></div>
+        <div class="aside-item"><div class="aside-dot"></div><div><strong>Share backs (10 min)</strong> — Each girl shares one insight or commitment from the session</div></div>
+        <div class="aside-item"><div class="aside-dot"></div><div><strong>Closing &amp; homework (5 min)</strong> — A small weekly challenge to practice leadership in daily life</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGN UP -->
+<section id="signup">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="signup-inner">
+    <div class="signup-left">
+      <div class="sec-label">Apply for Summer 2026</div>
+      <h2 class="sec-title">Reserve your <em>spot</em></h2>
+      <p>Space is limited to keep sessions intimate and impactful. Apply now to secure your daughter's place in the Summer 2026 cohort.</p>
+      <ul>
+        <li>Open to girls ages 10–15 in Hawaiʻi</li>
+        <li>Free for all participants</li>
+        <li>In-person at Ala Moana or live on Zoom</li>
+        <li>Saturdays 10 AM starting May 29, 2026</li>
+        <li>Learn to use AI tools safely and responsibly</li>
+        <li>Applications reviewed on a rolling basis</li>
+        <li>Parent or guardian approval required</li>
+      </ul>
+    </div>
+
+    <div class="signup-form">
+      <h3>Summer 2026 Application</h3>
+      <p class="form-sub">HackHawaii Girls · Lean In Leadership Program · 10 weeks · Free · Starting May 29</p>
+
+      <div style="text-align:center; padding: 2rem 0 1rem;">
+        <div style="font-size:3rem; margin-bottom:1rem;">🌺</div>
+        <p style="font-size:0.95rem; font-weight:300; color:var(--mid); line-height:1.75; max-width:340px; margin:0 auto 2rem;">
+          The application takes about 3 minutes. We'll follow up within 3 business days to confirm your spot.
+        </p>
+        <a
+          href="https://docs.google.com/forms/d/1Mnd_1k2u8VJY9pKwmx0h9B23HaRH9E-Am4RWIvm_-Mo/viewform"
+          target="_blank"
+          class="submit-btn"
+          style="display:inline-block; text-decoration:none; width:100%; padding:1.1rem 2rem; margin-bottom:1rem;"
+        >Apply Now — Open Form →</a>
+        <p class="form-note">🔒 Responses are private · Questions? <a href="mailto:hello@hackhawaii.org" style="color:var(--rose);">hello@hackhawaii.org</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">HackHawaii <em>Girls</em></div>
+    <div class="footer-tagline">Empowering the Next Generation of Island Leaders · Summer 2026</div>
+    <div class="footer-links">
+      <a href="hackhawaii.html">← HackHawaii.org</a>
+      <a href="#about">About</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#signup">Apply</a>
+      <a href="mailto:hello@hackhawaii.org">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 HackHawaii · Lean In Girls curriculum by Lean In Foundation · Made with aloha in Honolulu 🌺</p>
+  </div>
+</footer>
+
+<script>
+function toggleFormat(btn) {
+  document.querySelectorAll('.format-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function handleSubmit() {
+  const btn = document.querySelector('.submit-btn');
+  btn.textContent = '✓ Application Received!';
+  btn.style.background = '#2c4a3e';
+  btn.style.boxShadow = 'none';
+  btn.disabled = true;
+}
+</script>
+</body>
+</html>
